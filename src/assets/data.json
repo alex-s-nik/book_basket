@@ -1,30 +1,32 @@
-[
-    {
-        "title": "qwe",
-        "takenBy": 1
-    },
-    {
-        "title": "qwe1",
-        "takenBy": null
-    },
-    {
-        "title": "qwe2",
-        "takenBy": 1
-    },
-    {
-        "title": "qwe3",
-        "takenBy": null
-    },
-    {
-        "title": "qwe4",
-        "takenBy": 1
-    },
-    {
-        "title": "qwe5",
-        "takenBy": null
-    },
-    {
-        "title": "qwe6",
-        "takenBy": null
-    }
-]
+{
+    "books": [
+        {
+            "title": "title1",
+            "takenBy": null
+        },
+        {
+            "title": "title2",
+            "takenBy": null
+        },
+        {
+            "title": "title3",
+            "takenBy": 1
+        },
+        {
+            "title": "title4",
+            "takenBy": null
+        },
+        {
+            "title": "title5",
+            "takenBy": 1
+        },
+        {
+            "title": "title6",
+            "takenBy": null
+        },
+        {
+            "title": "title7",
+            "takenBy": null
+        }
+    ]
+}

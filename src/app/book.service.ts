@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+
+import * as bookData from '../assets/data.json';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +9,37 @@ export class BookService {
 
   private _bookData: any;
 
-  constructor(private _httpClient: HttpClient) {
-    this._httpClient.get('assets/data.json').subscribe(
-      data => {
-        this._bookData = data;
-      }
-    )
+  /**
+   * Загружает начальные данные из assets/data.json
+   * 
+   */
+  init(): void {
+    this._bookData = bookData.books;
   }
 
-  getUntakenBooks(): Observable<Book[]> {
-    return of(
-      this._bookData.filter(
+  /**
+   * Возвращает все книги, содержащиеся в файле json.
+   * 
+   * @returns список книг
+   */
+  getAllBooks(): Book[] {
+    return this._bookData;
+  };
+
+  /**
+   * Возвращает все невыданные книги из предложенного списка книг.
+   * Невыданными считаются книги, у которых takenBy содержит null.
+   * 
+   * @param bookList 
+   * 
+   * @returns список невыданных книг.
+   */
+  getUntakenBooks(): Book[] {
+    return this._bookData.filter(
         (book: Book) => (
           book.takenBy === null
         )
-      )
-    );
+      );
   }
 
 }

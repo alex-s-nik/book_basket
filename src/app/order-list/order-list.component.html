@@ -1,0 +1,14 @@
+<h5>Книги, которые будут выданы читателю.</h5>
+<div *ngIf="booksForLending.length; else elseBlock">
+    <table class="table">
+        <tr *ngFor="let book of booksForLending">
+          <td>{{book.title}}</td>
+          <td (click)="removeBookFromOrderList(book.title)">-</td>
+        </tr>
+    </table>
+</div>
+<ng-template #elseBlock>
+    <p>
+        Не выбрано ни одной книги для выдачи читателю.
+    </p>
+</ng-template>
