@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <app-books-list [untakenBooks]="_untakenBooks" (onChangeBookList)="addBookToOrderList($event)"></app-books-list>
+      <app-books-list [untakenBooks]="untakenBooks" (onChangeBookList)="addBookToOrderList($event)"></app-books-list>
     </div>
     <div class="col-6">
-      <app-order-list [booksForLending]="_booksForLending" (onChangeOrderList)="removeBookFromOrderList($event)"></app-order-list>
+      <app-order-list [booksForLending]="booksForLending" (onChangeOrderList)="removeBookFromOrderList($event)"></app-order-list>
     </div>
   </div>
 </div>

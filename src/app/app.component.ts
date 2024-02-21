@@ -20,29 +20,29 @@ import { OrderListComponent } from './order-list/order-list.component';
 })
 export class AppComponent implements OnInit {
 
-  protected _untakenBooks: Book[] = [];
-  protected _booksForLending: Book[] = [];
+  public untakenBooks: Book[] = [];
+  public booksForLending: Book[] = [];
 
   constructor(private _bookService: BookService) {
   }
   ngOnInit(): void {
     this._bookService.init();
-    this._untakenBooks = this._bookService.getUntakenBooks();
+    this.untakenBooks = this._bookService.getUntakenBooks();
   }
 
   addBookToOrderList(bookTitle: string): void {
-    const book: Book = this._untakenBooks.find(book=>book.title === bookTitle)!;
-    const index: number = this._untakenBooks.indexOf(book);
-    this._untakenBooks.splice(index, 1);
-    this._booksForLending.push(book);
+    const book: Book = this.untakenBooks.find(book=>book.title === bookTitle)!;
+    const index: number = this.untakenBooks.indexOf(book);
+    this.untakenBooks.splice(index, 1);
+    this.booksForLending.push(book);
   }
 
   removeBookFromOrderList(bookTitle: string): void {
-    const book: Book = this._booksForLending.find(book=>book.title === bookTitle)!;
-    const index: number = this._booksForLending.indexOf(book);
-    this._booksForLending.splice(index, 1);
-    this._untakenBooks.push(book);
-    this._untakenBooks.sort(
+    const book: Book = this.booksForLending.find(book=>book.title === bookTitle)!;
+    const index: number = this.booksForLending.indexOf(book);
+    this.booksForLending.splice(index, 1);
+    this.untakenBooks.push(book);
+    this.untakenBooks.sort(
       (book1, book2) => {
         if (book1.title > book2.title) return 1;
         if (book1.title < book2.title) return -1;
