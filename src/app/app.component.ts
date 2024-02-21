@@ -30,14 +30,14 @@ export class AppComponent implements OnInit {
     this.untakenBooks = this._bookService.getUntakenBooks();
   }
 
-  addBookToOrderList(bookTitle: string): void {
+  addBookToOrderListHandler(bookTitle: string): void {
     const book: Book = this.untakenBooks.find(book=>book.title === bookTitle)!;
     const index: number = this.untakenBooks.indexOf(book);
     this.untakenBooks.splice(index, 1);
     this.booksForLending.push(book);
   }
 
-  removeBookFromOrderList(bookTitle: string): void {
+  removeBookFromOrderListHandler(bookTitle: string): void {
     const book: Book = this.booksForLending.find(book=>book.title === bookTitle)!;
     const index: number = this.booksForLending.indexOf(book);
     this.booksForLending.splice(index, 1);
