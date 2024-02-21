@@ -9,11 +9,15 @@ export class BookService {
 
   private _bookData: any;
 
+  constructor() {
+    this.loadInitialData();
+  }
+
   /**
    * Загружает начальные данные из assets/data.json
    * 
    */
-  init(): void {
+  loadInitialData(): void {
     this._bookData = bookData.books;
   }
 

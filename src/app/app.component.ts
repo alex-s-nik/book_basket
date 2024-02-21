@@ -26,8 +26,7 @@ export class AppComponent implements OnInit {
   constructor(private _bookService: BookService) {
   }
   ngOnInit(): void {
-    this._bookService.init();
-    this.untakenBooks = this._bookService.getUntakenBooks();
+     this.untakenBooks = this._bookService.getUntakenBooks();
   }
 
   addBookToOrderListHandler(bookTitle: string): void {
