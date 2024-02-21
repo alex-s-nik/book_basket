@@ -12,9 +12,9 @@ import { Book } from '../book.service';
 })
 export class OrderListComponent {
   @Input() booksForLending: Book[] = [];
-  @Output() onChangeOrderList = new EventEmitter<string>();
+  @Output() ChangeOrderList = new EventEmitter<string>();
 
   removeBookFromOrderList(title: string): void {
-    this.onChangeOrderList.emit(title);
+    this.ChangeOrderList.emit(title);
   }
 }
